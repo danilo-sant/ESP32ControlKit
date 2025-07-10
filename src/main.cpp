@@ -21,8 +21,8 @@ SemaphoreHandle_t xControlSemaphore;
 TimerHandle_t xControlTimer;
 
 // Definição e inicialização real das variáveis de Wi-Fi
-const char* WIFI_SSID = "S23 de Luis";
-const char* WIFI_PASSWORD = "luis1234";
+const char* WIFI_SSID = "santos";
+const char* WIFI_PASSWORD = "12345678";
 
 // --- Protótipos das Tarefas ---
 void pid_controller_task(void *parameters);
@@ -221,7 +221,7 @@ void serial_plotter_task(void *parameters) {
  * @brief Tarefa que envia dados de telemetria via WebSocket para o gráfico da página web.
  */
 void websocket_plotter_task(void *parameters) {
-    const TickType_t xFrequency = pdMS_TO_TICKS(50); // Envia dados 4 vezes por segundo (4Hz)
+    const TickType_t xFrequency = pdMS_TO_TICKS(250); // Envia dados 4 vezes por segundo (4Hz)
     TickType_t xLastWakeTime = xTaskGetTickCount();
 
     for (;;) {

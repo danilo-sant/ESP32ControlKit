@@ -118,12 +118,14 @@ function sendData() {
         kp: parseFloat(document.getElementById('kp').value),
         ki: parseFloat(document.getElementById('ki').value),
         kd: parseFloat(document.getElementById('kd').value),
-        setpoint: parseInt(document.getElementById('setpoint').value, 10),
+        // ALTERAÇÕES AQUI: lê como float e usa uma nova chave "setpoint_v"
+        setpoint_v: parseFloat(document.getElementById('setpoint').value),
         planta: parseInt(document.querySelector('input[name="planta"]:checked').value, 10),
         combinacao: parseInt(document.getElementById('combinacao').value, 10)
     };
-    
+
     const jsonString = JSON.stringify(data);
+    console.log("Enviando JSON: ", jsonString);
     websocket.send(jsonString);
 }
 
